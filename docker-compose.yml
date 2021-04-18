@@ -2,15 +2,7 @@ version: "3.9"
 
 services:
   httpd:
-    image: httpd:2.4
+    build:
+      context: .
+      dockerfile: Dockerfile
     network_mode: host
-    volumes:
-      - type: bind
-        source: ./vhosts
-        target: /var/vhosts
-      - type: bind
-        source: ./httpd.conf
-        target: /usr/local/apache2/conf/httpd.conf
-      - type: bind
-        source: ./httpd-vhosts.conf
-        target: /usr/local/apache2/conf/extra/httpd-vhosts.conf
