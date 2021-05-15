@@ -1,6 +1,7 @@
 FROM httpd:2.4
 
-COPY ./httpd.conf /usr/local/apache2/conf
-COPY ./httpd-vhosts.conf /usr/local/apache2/conf/extra
+COPY conf /usr/local/apache2/conf
 
 COPY vhosts /var/vhosts
+
+VOLUME [ "/usr/local/apache2/logs" ]

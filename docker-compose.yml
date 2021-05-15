@@ -1,8 +1,26 @@
 version: "3.9"
 
+volumes:
+  files:
+
 services:
   httpd:
     build:
-      context: .
+      context: httpd
       dockerfile: Dockerfile
     network_mode: host
+    volumes:
+      - type: volume
+        source: files
+        target: /var/vhosts/downloads/files
+        read_only: true
+  
+  uploader:
+    build:
+      context: uploader
+      dockerfile: Dockerfile
+    network_mode: host
+    volumes:
+      - type: volume
+        source: files
+        target: /var/www/files
