@@ -1,0 +1,28 @@
+version: "3.9"
+
+networks:
+  default:
+    external: true
+    name: proxy-web
+
+volumes:
+  nginx-dhparam:
+  nginx-certs:
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:0.9.0
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /tmp/docker.sock
+      - type: volume
+        source: nginx-dhparam
+        target: /etc/nginx/dhparam
+      - type: volume
+        source: nginx-certs
+        target: /etc/nginx/certs
+    environment:
+      DEFAULT_HOST: default

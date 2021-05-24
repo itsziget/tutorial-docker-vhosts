@@ -3,24 +3,35 @@ version: "3.9"
 volumes:
   files:
 
+networks:
+  proxy:
+    external: true
+    name: proxy-web
+
 services:
-  httpd:
+  downloads:
     build:
-      context: httpd
+      context: downloads
       dockerfile: Dockerfile
-    network_mode: host
     volumes:
       - type: volume
         source: files
-        target: /var/vhosts/downloads/files
+        target: /usr/local/apache2/htdocs/files
         read_only: true
+    environment:
+      VIRTUAL_HOST: downloads.127.0.0.1.nip.io
+    networks:
+      - proxy
   
   uploader:
     build:
       context: uploader
       dockerfile: Dockerfile
-    network_mode: host
     volumes:
       - type: volume
         source: files
         target: /var/www/files
+    environment:
+      VIRTUAL_HOST: 127.0.0.1.nip.io
+    networks:
+      - proxy
