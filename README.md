@@ -3,7 +3,7 @@ tutorial-docker-vhosts
 
 This repository contains the code for the step by step tutorial on [Youtube](https://youtu.be/AayjRuB_pE8) in which I show you how you can se Docker 20.10 to configure a webserver hosting multiple websites with virtual hosts and reverse proxy.
 
-This tutorial is Hungarian, however, everything you can see on the screen and in the source code is in English. 
+This tutorial is Hungarian, however, the source code and almost everything on the screen in the video is in English.
 
 Tags and videos
 ---------------
