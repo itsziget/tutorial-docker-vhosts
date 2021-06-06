@@ -15,4 +15,6 @@ Tags and videos
 * step-03: https://youtu.be/wzXduCTosxk \
   Using volumes
 * step-04: https://youtu.be/r-TVCPKhTc4 \
-  [Jason Wilder](https://github.com/jwilder)'s Nginx proxy
+  [Jason Wilder](https://github.com/jwilder)'s NginX proxy
+* step-05: https://youtu.be/R2jWvixeyeI
+  NginX and docker-gen running in separate containers
